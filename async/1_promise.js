@@ -16,7 +16,9 @@ class MyPromise {
       if (this.status === PENDING) {
         this.data = data;
         this.status = FULFILLED;
-        this.onResolvedCallback(data);
+        setTimeout(() => {
+          this.onResolvedCallback(data);
+        });
       }
     }
 
@@ -25,18 +27,20 @@ class MyPromise {
       if (this.status === PENDING) {
         this.data = err;
         this.status = REJECTED;
-        this.onRejectedCallback(err);
+        setTimeout(() => {
+          this.onRejectedCallback(err);
+        });
       }
     }
 
-    // 把任务放入微任务队列，优先执行then注册回调处理函数
-    process.nextTick(() => {
-      try {
-        executor(resolve, reject)
-      } catch (e) {
+    // 执行任务
+    try {
+      executor(resolve, reject)
+    } catch (e) {
+      setTimeout(() => {
         this.onRejectedCallback(e);
-      }
-    });
+      });
+    }
   }
 
   then(onResolved, onRejected) {
