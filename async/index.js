@@ -5,12 +5,14 @@ new MyPromise((resolve, reject) => {
     resolve('test');
   }, 1000);
 })
-  .then(
-    // (data) => { console.log(data); return new MyPromise((resolve) => resolve(data + 100)) }, // 无法触后面的then
-    (data) => { console.log(data); return new MyPromise((resolve) => setTimeout(() => resolve(data + 100), 100)) },
+  /* promise1 */.then(
+    (data) => {
+      return new MyPromise((resolve) => {resolve(data + 100);});
+    },
+    // (data) => { console.log(data); return new MyPromise((resolve) => setTimeout(() => resolve(data + 100), 100)) },
     (err) => { console.log('error', err); },
   )
-  .then((data) => console.log('next: ', data))
-  .then((data) => console.log('next: ', data))
-  .then((data) => console.log('next: ', data))
-  .then((data) => console.log('next: ', data))
+  /* promise2 */.then((data) => console.log('链式Promise：', data))
+  /* promise3 */.then((data) => console.log('next: ', data))
+  /* promise4 */.then((data) => console.log('next: ', data))
+  /* promise5 */.then((data) => console.log('next: ', data))
