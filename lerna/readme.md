@@ -97,7 +97,7 @@ example
 {
   "__npmClient": "执行命令所用的客户端，默认为npm",
   "npmClient": "yarn",
-  "__useWorkspaces": "pkg 中同时配置 {"workspaces": ["packages/*"]}",
+  "__useWorkspaces": "pkg 中同时配置 {'workspaces': ['packages/*']}",
   "useWorkspaces": true,
   "__command": "命令相关配置",
   "command": {
