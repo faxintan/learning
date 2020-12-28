@@ -95,20 +95,30 @@ example
 
 ```json
 {
-  "npmClient": "yarn", // 执行命令所用的客户端，默认为npm
-  "useWorkspaces": true, // pkg 中同时配置 {"workspaces": ["packages/*"]},
-  "command": { // 命令相关配置
-    "publish": { // 发布时配置
-      "ignoreChanges": ["ignored-file", "*.md"], // 发布时忽略的文件
-      "message": "chore(release): publish" // 发布时的自定义提示消息
+  "__npmClient": "执行命令所用的客户端，默认为npm",
+  "npmClient": "yarn",
+  "__useWorkspaces": "pkg 中同时配置 {"workspaces": ["packages/*"]}",
+  "useWorkspaces": true,
+  "__command": "命令相关配置",
+  "command": {
+    "__publish": "发布时配置",
+    "publish": {
+      "__ignoreChanges": "校验版本变更时需要忽略的文件",
+      "ignoreChanges": ["ignored-file", "*.md"],
+      "__message": "发布时的自定义提示消息",
+      "message": "chore(release): publish"
     },
-    "bootstrap": { // 安装依赖配置
-      "ignore": "component-*", // 忽略项
-      "npmClientArgs": ["--no-package-lock"] // 执行 lerna bootstrap命令时传的参数
+    "__bootstrap": "安装依赖配置",
+    "bootstrap": {
+      "ignore": "component-*",
+      "__npmClientArgs": "执行 lerna bootstrap命令时传的参数",
+      "npmClientArgs": ["--no-package-lock"]
     }
   },
-  "packages": ["packages/*"], // 指定存放包的位置
-  "version": "0.0.0" // 当前版本号
+  "__packages": "指定存放包的位置",
+  "packages": ["packages/*"],
+  "__version": "当前版本号",
+  "version": "0.0.0"
 }
 ```
 
