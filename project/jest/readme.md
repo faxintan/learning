@@ -36,3 +36,24 @@ module.exports = {
 };
 
 ```
+
+### lint-staged
+
+开发过程中，单个文件改动时如果重新执行所有单元测试将大大降低开发效率，可以通过 lint-staged 调用
+jest --bail --findRelatedTests 针对更改的文件做单独的单元测试即可。
+
+> Notice: 该方式生成的覆盖率报告异常，但不影响单元测试的正确性校验
+
+```json
+{
+  "scripts": {
+    "test": "jest --bail --coverage",
+    "test-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "**/*.ts": [
+      "jest --bail --findRelatedTests"
+    ]
+  }
+}
+```
