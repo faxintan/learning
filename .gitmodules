@@ -1,0 +1,3 @@
+[submodule "algorithm"]
+	path = algorithm
+	url = git@github.com:faxintan/algorithm.git
