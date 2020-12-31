@@ -1,3 +1,6 @@
 [submodule "algorithm"]
 	path = algorithm
 	url = git@github.com:faxintan/algorithm.git
+[submodule "devops"]
+	path = devops
+	url = git@github.com:faxintan/devops.git
